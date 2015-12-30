@@ -124,7 +124,7 @@ function WemoRequest(ip, SOAPData, callback) {
 		var packet = '<?xml version="1.0" encoding="utf-8"?>'+
 				'<s:Envelope xmls:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
 			'<s:Body>'+
-				'<u:GetBinaryState xmlns:u="urn:Belkin:service:basicevent:1"></u:GetBinaryState>'+
+				'<u:GetBinaryState xmlns:u="urn:Belkin:service:basicevent:1"><BinaryState>1</BinaryState></u:GetBinaryState>'+
 			'</s:Body>'+
 		'</s:Envelope>';
 
