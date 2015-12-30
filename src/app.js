@@ -113,9 +113,10 @@ function WemoRequest(ip, SOAPData, callback) {
 
 	try {
 		var request = new XMLHttpRequest();
-		request.open("POST", url, false);
+		request.open("POST","http://192.168.1.230:49153/upnp/control/basicevent1", true);
+		request.setRequestHeader("Content-Type",  "text/xml");
 		request.setRequestHeader("SOAPAction", "urn:Belkin:service:basicevent:1#GetBinaryState");
-		request.setRequestHeader("Content-Type",  "text/xml; charset=utf-8");
+
 		request.onreadystatechange = function() {
   	    if (request.readyState == 4 && request.status === 200 && callback) {
     			callback(request, SOAPData);
@@ -124,7 +125,7 @@ function WemoRequest(ip, SOAPData, callback) {
 		var packet = '<?xml version="1.0" encoding="utf-8"?>'+
 				'<s:Envelope xmls:s="http://schemas.xmlsoap.org/soap/envelope/" s:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">'+
 			'<s:Body>'+
-				'<u:GetBinaryState xmlns:u="urn:Belkin:service:basicevent:1"><BinaryState>1</BinaryState></u:GetBinaryState>'+
+				'<u:GetBinaryState xmlns:u="urn:Belkin:service:basicevent:1"></u:GetBinaryState>'+
 			'</s:Body>'+
 		'</s:Envelope>';
 
